@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://sorb31dv0u3o"]
+
+[ext_resource type="Script" uid="uid://c18tooftxws1k" path="res://Codis/meteorit.gd" id="2_5k5qu"]
+[ext_resource type="Texture2D" uid="uid://jg664cb86dcb" path="res://Imatges/meteorits.png" id="2_mjjme"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg3gu"]
+atlas = ExtResource("2_mjjme")
+region = Rect2(37, 0, 64, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfl1n"]
+atlas = ExtResource("2_mjjme")
+region = Rect2(106, 0, 64, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4m66"]
+atlas = ExtResource("2_mjjme")
+region = Rect2(175, 0, 64, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7luhs"]
+atlas = ExtResource("2_mjjme")
+region = Rect2(244, 0, 64, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30v8u"]
+atlas = ExtResource("2_mjjme")
+region = Rect2(313, 0, 64, 184)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mjfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg3gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfl1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4m66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7luhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30v8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Area2D" type="Area2D" groups=["meteorit"]]
+script = ExtResource("2_5k5qu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(41, 1)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_6mjfb")
+frame_progress = 0.0348835
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(10, -12, -4, -18, -21, -18, -28, -22, -43, -12, -42, 12, -31, 22, -16, 12, -5, 12, 4, 6, 10, 3)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwah2ubke68j5"]
+
+[ext_resource type="Script" uid="uid://ckyf4xaax2okq" path="res://Codis/joc.gd" id="1_5pi0w"]
+[ext_resource type="PackedScene" uid="uid://c5xpcvo8wxtn8" path="res://escenes/espai.tscn" id="1_d4trm"]
+[ext_resource type="PackedScene" uid="uid://powk3olj01l7" path="res://escenes/nau.tscn" id="1_yesdi"]
+[ext_resource type="PackedScene" uid="uid://o6e8nixruwam" path="res://escenes/limits.tscn" id="3_ushej"]
+[ext_resource type="PackedScene" uid="uid://sorb31dv0u3o" path="res://escenes/meteorit.tscn" id="4_1vqqe"]
+[ext_resource type="PackedScene" uid="uid://dgq3siibp28lq" path="res://escenes/limit_esquerra.tscn" id="5_3unvm"]
+[ext_resource type="PackedScene" uid="uid://be3lnae6j8iy4" path="res://escenes/controls.tscn" id="7_5pi0w"]
+[ext_resource type="PackedScene" uid="uid://debvh80mopfsg" path="res://escenes/contador.tscn" id="8_iwo3i"]
+[ext_resource type="PackedScene" uid="uid://7qivwd70s0n8" path="res://escenes/game_over.tscn" id="9_2edcw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5pi0w")
+
+[node name="espai" parent="." instance=ExtResource("1_d4trm")]
+position = Vector2(14623, 330)
+
+[node name="Nau" parent="." instance=ExtResource("1_yesdi")]
+position = Vector2(120, 111)
+scale = Vector2(0.3, 0.3)
+
+[node name="Limits" parent="." instance=ExtResource("3_ushej")]
+
+[node name="Limit_esquerra" parent="." instance=ExtResource("5_3unvm")]
+
+[node name="Meteorit" parent="." instance=ExtResource("4_1vqqe")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="controls" parent="." instance=ExtResource("7_5pi0w")]
+
+[node name="contador" parent="." instance=ExtResource("8_iwo3i")]
+
+[node name="GAME_OVER" parent="." instance=ExtResource("9_2edcw")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="contador" method="_on_timer_timeout"]

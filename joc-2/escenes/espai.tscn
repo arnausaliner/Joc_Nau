@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5xpcvo8wxtn8"]
+
+[ext_resource type="Script" uid="uid://0b4sfpe5qc66" path="res://Codis/espai.gd" id="1_v6res"]
+[ext_resource type="Texture2D" uid="uid://5a01e5xwm7fy" path="res://Imatges/espai.jpg" id="1_w0lku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6res"]
+size = Vector2(1167, 661)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_v6res")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v6res")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 3
+position = Vector2(1.00003, 0.749967)
+scale = Vector2(1.4625, 1.65375)
+texture = ExtResource("1_w0lku")
+region_enabled = true
+region_rect = Rect2(-1, -2.5, 900000, 401)

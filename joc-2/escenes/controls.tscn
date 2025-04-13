@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://be3lnae6j8iy4"]
+
+[ext_resource type="Script" uid="uid://4bdi51835jl" path="res://Codis/Controls.gd" id="1_5il1s"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 247.0
+offset_bottom = 101.0
+script = ExtResource("1_5il1s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CONTROLS:
+W/ Fletxa amunt -> Pujar
+S/ Fletxa avall -> Baixar
+Shift -> Accelerar
+R -> Tornar a començar"
